@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" style="background-color: #333 ;">
+    <div class="container">
+    </div>
+</nav>
+    <section class="page-section mb-0" id="about" style="background-color:#ffD205;">
+        <div class="container">
+            <!-- Form Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase "style = "color:#333; font-family:gotham rounded;font-style:medium;">Agregar Proyectos</h2>
+        </div>
+        <section class="page-section mb-0">
+            <div class="container">
+                <!-- Contenido del Formulario -->
+                <div class="row">
+                    <form action="agregar_proyecto" method="POST" style="border-radius: 12px ;background-color:#EFEFEF ; color:#333; font-family:gotham rounded;font-style:medium;" width="100%" height="120%">{% csrf_token %}
+                        <div class="form-holder">
+                            <div class="form-content">
+                                <div class="form-items">
+                                    <p></p>
+                                    <h3 style = "color:#333; font-family:gotham rounded;font-style:medium;" >Agregá un proyecto:</h3>
+                                    <form class="requires-validation" novalidate style = "color:#333; font-family:gotham rounded;font-style:medium;">
+            
+                                        <div class="col-md-12">
+                                            <p></p>
+                                           <input class="form-control" type="text" name="titulo" placeholder="Título" required>
+                                           <div class="valid-feedback">¡El título no es válido!</div>
+                                           <div class="invalid-feedback">¡El título no puede estar vacío!</div>
+                                        </div>
+    
+                                        <div class="col-md-12">
+                                            <P></P>
+                                            <input class="form-control" type="text" name="contenido" placeholder="contenido" required>
+                                            <div class="valid-feedback">¡El contenido no es válido!</div>
+                                            <div class="invalid-feedback">¡El contenido no puede estar vacío!</div>
+                                         </div>
+
+    
+                                        <div class="col-md-12">
+                                            <P></P>
+                                            <input class="form-control" type="tel" name="autor" placeholder="autor" required>
+                                         <div class="valid-feedback">¡El número de autor no es válido!</div>
+                                         <div class="invalid-feedback">¡El número de autor no puede estar vacío!</div>
+            
+                                        <div class="col-md-12">
+                                            <P></P>
+                                            <input class="form-control" type="text" name="resumen" placeholder="resumen" required>
+                                            <div class="valid-feedback">¡El resúmen no es válido!</div>
+                                            <div class="invalid-feedback">¡El resúmen no puede estar vacío!</div>
+                                        </div>
+            
+                                    <div class="form-check">
+                                        <p></p>
+                                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                      <label class="form-check-label">Confirmo que deseo enviar este proyecto</label>
+                                     <div class="invalid-feedback">Por favor, confirme que desea enviar este proyecto</div>
+                                    </div>
+                              
+    
+                                        <div class="form-button mt-3" style="color:#FFD205 ;">
+                                            <p></p>
+                                            <button id="submit" type="submit" class="btn btn-primary rounded-12px py-2 px-4">Enviar</button>
+                                        <p></p>
+                                        </div>
+                                    </form>
+    
+                </div>
+            </div>
+        </section>
+{% endblock %}

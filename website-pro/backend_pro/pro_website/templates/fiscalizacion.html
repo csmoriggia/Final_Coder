@@ -1,0 +1,108 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" style="background-color: #333 ;">
+    <div class="container">
+    </div>
+</nav>
+    <section class="page-section mb-0" id="about" style="background-color:#ffD205;">
+        <div class="container">
+            <!-- Cabecera del formulario -->
+            <h2 class="page-section-heading text-center text-uppercase "style = "color:#333; font-family:gotham rounded;font-style:medium;">¡Sumate a Fiscalizar!</h2>
+        </div>
+    </section>
+    <section class="page-section mb-0" id="about" style="background-image: url({% static "pro_website/assets/img/form_background.png" %}) ; background-repeat: no-repeat; background-attachment: fixed; background-size:cover;">
+        <div class="container">
+            <!-- Contenido del formulario -->
+            <div class="row">
+
+                <form action="fiscalizacion" method="POST" style="border-radius: 12px ;background-color:#EFEFEF ; color:#333; font-family:gotham rounded;font-style:medium;" width="100%" height="120%">{% csrf_token %}
+                    <div class="form-holder">
+                        <div class="form-content">
+                            <div class="form-items">
+                                <p></p>
+                                <h3 style = "color:#333; font-family:gotham rounded;font-style:medium; " >Mis Datos:</h3>
+                                <form class="requires-validation" novalidate style = " border-radius: 12px; color:#333; font-family:gotham rounded;font-style:medium;">{% csrf_token %}
+        
+                                    <div class="col-md-12">
+                                        <p></p>
+                                        <p>Nombre</p>
+                                       <input class="form-control" type="text" name="nombre" placeholder="" style = 'border-radius: 12px' required>
+                                       <div class="valid-feedback">¡El nombre no es válido!</div>
+                                       <div class="invalid-feedback">¡El campo no puede estar vacío!</div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <P></P>
+                                        <P>Apellido</P>
+                                        <input class="form-control" type="text" name="apellido" placeholder="" style = 'border-radius: 12px' required>
+                                        <div class="valid-feedback">¡El apellido no es válido!</div>
+                                        <div class="invalid-feedback">¡El campo no puede estar vacío!</div>
+                                     </div>
+
+                                     <div class="col-md-12">
+                                         <P></P>
+                                         <P>Dirección</P>
+                                        <input class="form-control" type="text" name="direccion" placeholder="" style = 'border-radius: 12px' required>
+                                        <div class="valid-feedback">¡La dirección no es válida!</div>
+                                        <div class="invalid-feedback">¡El campo no puede estar vacío!</div>
+                                     </div>
+
+                                    <div class="col-md-12">
+                                        <p></p>
+                                        <P>DNI</P>
+                                        <input class="form-control" type="number" name="dni" placeholder="" style = 'border-radius: 12px' required>
+                                         <div class="valid-feedback">El DNI no es válido</div>
+                                         <div class="invalid-feedback">¡El campo no puede estar vacío!</div>
+                                    </div>
+        
+        
+                                   <div class="col-md-12">
+                                       <P></P>
+                                       <p>Fecha de Nacimiento</p>
+                                      <input class="form-control" type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" style = 'border-radius: 12px' required>
+                                       <div class="valid-feedback">¡La fecha de nacimiento no es válida!</div>
+                                       <div class="invalid-feedback">¡El campo no puede estar vacío!</div>
+
+                                    <div class="col-md-12">
+                                        <P></P>
+                                        <P>Número de teléfono</P>
+                                        <input class="form-control" type="tel" name="telefono" placeholder="" style = 'border-radius: 12px' required>
+                                     <div class="valid-feedback">¡El número de teléfono no es válido!</div>
+                                     <div class="invalid-feedback">¡El campo no puede estar vacío!</div>
+        
+        
+                                <div class="form-check">
+                                    <p></p>
+                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                  <label class="form-check-label">Confirmo que los datos son correctos</label>
+                                 <div class="invalid-feedback">Por favor, confirme que los datos son correctos</div>
+                                </div>
+                          
+                                <div class="form-check">
+                                    <p></p>
+                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                  <label class="form-check-label"> <details>
+                                    <summary>Leí cómo funciona el manejo de datos y privacidad</summary>
+                                    <div>
+                                        <p>
+                                            Los datos ingresados a nuestra página son para uso interno del partido; al ingresar la información solicitada en nuestros formularios, el Pro Chivilcoy se compromete a no difundir los datos fuera de las instituciones que las requieran ya sea para fiscalización y/o afiliación</p>
+                                    </div>
+                                  </details></href></label>
+                                </div>
+
+                                    <div class="form-button mt-3" style="color:#FFD205 ;">
+                                        <p></p>
+                                        <button id="submit" type="submit" class="btn btn-primary rounded-12px py-2 px-4">Enviar</button>
+                                    <p></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

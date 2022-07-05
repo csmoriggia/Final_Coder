@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" style="background-color: #333 ;">
+    <div class="container">
+    </div>
+</nav>
+<section class="page-section mb-0" style="background-color:#ffD205;">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase "style = "color:#333; font-family:gotham rounded;font-style:medium;">Contacto</h2>
+        </div>
+</section>
+
+  
+
+<div class="content" style="color:#efefef ; font-family: gotham rounded ; font-style: medium ;">
+    
+    <div class="container">
+
+      
+      <div class="row" style=" justify-content: center;">
+        <div class="col-md-10" style="margin-left:33% ; margin-top: 5%">
+          
+          <div class="row align-items-center">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+
+
+
+              <form class="border-right pr-5 mb-5" action="https://formsubmit.co/csmoriggia@gmail.com" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
+                {% csrf_token%}
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" class="form-control" name="fname" id="fname" placeholder="Nombre" style = 'border-radius: 12px ; text-align: center;'>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input type="text" class="form-control" name="lname" id="lname" placeholder="Apellido" style = 'border-radius: 12px ; text-align: center;'>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" style="margin-top: 4%; border-radius: 12px ; text-align: center;">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <textarea class="form-control" name="message" id="message" cols="30" rows="7" placeholder="Escribinos tu mensaje" style="margin-top: 4%; border-radius: 12px ; text-align: center;"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="submit" value="Enviar" class="btn btn-primary rounded-12px py-2 px-4" style=" border-radius: 15px ;margin-top: 4%; background-color: #ffd205; border-color: #ffD205; color: #333;">
+                    <span class="submitting"></span>
+                  </div>
+                </div>
+                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+              </form>
+
+
+            </div>
+
+          </div>
+        </div>  
+        </div>
+      </div>
+  </div>
+    
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+  
+
+{% endblock %}

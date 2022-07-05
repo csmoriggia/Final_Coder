@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pro Chivilcoy</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href={% static 'pro_website/assets/favicon.ico' %} />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'pro_website/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top" style="background-color: #333 ;">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #333 ;">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src={% static 'pro_website/assets/img/index.png' %}></a>
+                <button class="navbar-toggler text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style = "color:#EFEFEF; font-family:gotham rounded;font-style:medium; justify-content: center;">
+                    <a></a>Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/afiliate">Afiliate</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/fiscalizacion">Fiscalización</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/juventud">Juventud</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/nuestros_proyectos">Proyectos</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/quienes_somos">Nosotros</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/contacto">Contacto</a></li>
+                        {% if not request.user.is_authenticated%}
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <div class="dropdown">
+                                <button class="dropbtn">INICIAR</button>
+                                <div class="dropdown-content">
+                                  <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'Login' %}">Logueate</a>
+                                  <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'Register' %}">Registrate</a>
+                                </div>
+                              </div> </li>
+
+                        {% elif request.user.is_superuser %}
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <div class="dropdown">
+                                <button class="dropbtn">{{user.username}}<img src="{{url}}" width="15%" style="border-radius: 100%;"></button>
+                                <div class="dropdown-content">
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'editar_perfil' user.id %}">Editar Usuario</a>                                  
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'Buscar_Afiliado' %}">Búsqueda de Afiliados</a>
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'leer_afiliados' %}">Listado de Afiliados</a>
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'leer_proyectos' %}">Listado de Proyectos</a>
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'leer_usuario' %}">Listado de Usuarios</a>
+                                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Salir</a>
+
+
+                                    {% elif request.user.is_authenticated%}
+                                    <li class="nav-item mx-0 mx-lg-1">
+                                        <div class="dropdown">
+                                            <button class="dropbtn">{{user.username}}<img src="{{url}}" width="15%" style="border-radius: 100%;"></button>
+                                            <div class="dropdown-content">
+                                                <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'editar_perfil' user.id %}">Editar Usuario</a> 
+                                                <a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'logout' %}">Salir</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {% block content %}
+        <!-- Masthead-->
+        <header class="masthead text-white text-center">
+            <video autoplay muted loop width="100%" height="30%" src={% static 'pro_website/assets/img/video_1.mp4' %}>
+            </video>
+        </header>
+        <!-- About Section-->
+        <section class="page-section mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase ">Acerca de Nosotros</h2>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ms-auto"><p class="lead">El Pro es un partido político.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">El Pro de Chivilcoy es como el Pro, pero de Chivilcoy</p></div>
+                </div>
+
+            </div>
+        </section>
+        {% endblock %}
+        <!-- Contact Section-->
+        <!-- Footer-->
+        <footer class="footer text-center" style="background-color:#333333 ;">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Visitanos en nuestro local</h4>
+                        <p class="lead mb-0">
+                            <iframe width="80%" height="40%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.4549207328814!2d-60.02007828255615!3d-34.8950315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bea53630bedc37%3A0xc13570fecb10a04e!2sBol%C3%ADvar%2037%2C%20Chivilcoy%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1653663682067!5m2!1sen!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Nuestras redes</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/prochivilcoy1" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/ProChivilcoy" target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/jprochivilcoy/" target="_blank"><i class="fab fa-fw fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://open.spotify.com/show/2HhZmiHf8LIysxEfGGtHlG?si=OvIlDuRjT8mqTr3VmuqpnA&nd=1" target="_blank"><i class="fab fa-fw fa-spotify"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

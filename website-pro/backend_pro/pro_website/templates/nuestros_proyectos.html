@@ -1,0 +1,30 @@
+{% extends "index.html"%}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" style="background-color: #333 ;">
+    <div class="container">
+    </div>
+</nav>
+<section class="page-section mb-0" style="background-color:#ffD205;">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase "style = "color:#333; font-family:gotham rounded;font-style:medium;">Nuestros Proyectos</h2>
+        </div>
+</section>
+
+<section class="row" style="background-color:#333; color:#333; font-family:gotham rounded;font-style:medium; text-align: center; justify-content: center;">
+    
+
+  {% for p in proyectos %}
+
+  <div class="card" style="width: 18rem; margin-top: 3%; margin-left: 3%; margin-right: 1%;">
+    <div class="card-body">
+      <h5 class="card-title">{{ p.titulo }}</h5>
+      <p class="card-text">{{ p.resumen }}</p>
+      <a href="{% url 'ver_proyecto' p.id %}" class="btn btn-primary rounded-12px py-2 px-4">Leer más</a>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
+
+{% endblock %}

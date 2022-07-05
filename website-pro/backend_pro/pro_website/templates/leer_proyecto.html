@@ -1,0 +1,29 @@
+{% extends "index.html"%}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" style="background-color: #333 ;">
+    <div class="container">
+    </div>
+</nav>
+<section class="page-section mb-0" style="margin-top: 5% ;">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase "style = "color:#333; font-family:gotham rounded;font-style:medium;">{{Proyecto.titulo}}</h2>
+        </div>
+</section>
+
+<section class="row" style="margin-top: 1%;margin-left: 1%;margin-right: 10%;background-color:#333; color:#666; font-family:gotham rounded;font-style:medium; text-align: center;">
+    
+
+  Proyecto presentado por: {{Proyecto.autor}}
+  
+  </section>
+
+<section class="row" style="margin-top: 5%;margin-left: 10%;margin-right: 10%;background-color:#333; color:#EFEFEF; font-family:gotham rounded;font-style:medium; text-align: center; justify-content: center;">
+    
+
+{{Proyecto.contenido}}
+
+</section>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" >
+    <div class="container">
+    </div>
+</nav>
+    <section class="page-section mb-0" id="about">
+        <div class="container">
+
+            <h2 class="page-section-heading text-center text-uppercase ">Listado de usuarios</h2>
+        </div>
+    </section>
+    <section class="page-section-heading text-center text-uppercase " style = "color:#EFEFEF; font-family:gotham rounded;font-style:medium; margin-top: 5%;">
+       
+        {% for p in usuarios %}
+
+            <li>{{p}}
+            <button style=" margin-left: 1%; margin-top: 0.5% ;background-color:#ffD205; border-radius: 12px; border-color: #ffD205;">
+                <a href="{% url 'eliminar_usuario' p.id %}" style="color: #333; text-decoration: none;">Eliminar</a>
+            </button>
+            
+            <button style=" margin-top: 0.5% ;background-color:#ffD205; border-radius: 12px; border-color: #ffD205;">
+                <a href="{% url 'editar_perfil' p.id %}" style="color: #333; text-decoration: none;">Editar</a>
+            </button>
+            </li>
+        {% endfor %}
+
+    </section>
+{% endblock %}

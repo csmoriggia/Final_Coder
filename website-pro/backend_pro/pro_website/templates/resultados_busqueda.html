@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg text-uppercase" id="mainNav" style="background-color: #333 ;">
+    <div class="container">
+    </div>
+</nav>
+    <section class="page-section mb-0" id="about" style="color:#333; font-family:gotham rounded;font-style:medium;background-color:#ffD205;">
+        <P>Estamos buscando a: {{nombre}}</P>
+        <p>Y buscando a "{{nombre}}"" encontramos a las siguientes personas en nuestra base de datos</p>
+
+        {% if afiliados %}
+        
+        <ul>
+        {% for afiliado in afiliados %}
+            <li> {{afiliado.nombre}}
+            {{afiliado.apellido}}</li>
+        {% endfor %}
+        
+        </ul>
+        {% endif %}
+    </section>
+{% endblock %}
+
